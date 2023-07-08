@@ -16,7 +16,26 @@ namespace FindMaximum
         /// <exception cref="ArgumentException">Thrown when array is empty.</exception>
         public static int GetMax(int[]? array)
         {
-            throw new NotImplementedException("You need to implement this method.");
+            if (array is null)
+            {
+                throw new ArgumentNullException(nameof(array));
+            }
+
+            if (array.Length == 0)
+            {
+                throw new ArgumentException("Array cannot be empty");
+            }
+
+            int max = array[0];
+            for (int i = 1; i < array.Length; i++)
+            {
+                if (array[i] > max)
+                {
+                    max = array[i];
+                }
+            }
+
+            return max;
         }
     }
 }
